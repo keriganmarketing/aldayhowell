@@ -16,6 +16,7 @@ use Includes\Modules\Leads\SimpleContact;
 use Includes\Modules\Social\SocialSettingsPage;
 
 require('vendor/autoload.php');
+require('post-types/project.php');
 
 new CleanWP();
 
