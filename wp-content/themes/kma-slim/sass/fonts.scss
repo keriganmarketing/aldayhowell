@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=OpenSans:300,400,500,700,800,900');
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/wp-content/themes/kma-slim/fonts/bebas/bebasneue-webfont-webfont.woff2') format('woff2'),
+  url('/wp-content/themes/kma-slim/fonts/bebas/bebasneue-webfont-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h1 span, h2 span, h3 span, .bebas {
+  font-family: 'Bebas Neue', sans-serif;
+}
