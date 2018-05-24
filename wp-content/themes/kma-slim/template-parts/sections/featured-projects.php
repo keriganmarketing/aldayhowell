@@ -2,9 +2,12 @@
     <div class="container">
         <h2 class="title is-2">Featured Projects</h2>
         <div class="columns is-multiline">
-            <?php foreach(getProjects(null,4) as $project){ ?>
-            <?php include(locate_template('template-parts/partials/mini-project.php')); ?>
-            <?php } ?>
+            <?php
+                foreach(getProjects(null,4) as $project){
+                    $client = get_the_terms($project['id'], 'client')[0];
+                    include(locate_template('template-parts/partials/mini-project.php'));
+                }
+            ?>
         </div>
     </div>
     <div class="section-cta has-text-centered">

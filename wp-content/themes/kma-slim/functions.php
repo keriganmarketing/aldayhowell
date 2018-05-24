@@ -17,6 +17,8 @@ use Includes\Modules\Social\SocialSettingsPage;
 
 require('vendor/autoload.php');
 require('post-types/project.php');
+require('post-types/client.php');
+require('post-types/service.php');
 
 new CleanWP();
 
@@ -102,3 +104,18 @@ function kmaslim_theme_customizer( $wp_customize ) {
     ) ) );
 }
 add_action( 'customize_register', 'kmaslim_theme_customizer' );
+
+function getProjectsForClient($client) {
+	return get_posts(array(
+		'post_type' => 'project',
+		'numberposts' => -1,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'client',
+				'field' => 'id',
+				'terms' => $client, // Where term_id of Term 1 is "1".
+				'include_children' => false
+			)
+		)
+	));
+}
