@@ -17,7 +17,7 @@ $socialIcons = $socialLinks->getSocialLinks('svg', 'circle');
         <div id="bot" class="is-flex-column is-aligned has-text-centered">
             <div class="bottom-nav">
                 <?php wp_nav_menu([
-                    'theme_location' => 'footer-menu',
+                    'theme_location' => 'main-menu',
                     'container'      => false,
                     'menu_class'     => 'navbar is-transparent is-justified is-aligned',
                     'fallback_cb'    => '',
@@ -28,13 +28,6 @@ $socialIcons = $socialLinks->getSocialLinks('svg', 'circle');
                     'walker'         => new BulmaNavwalker()
                 ]); ?>
             </div>
-            <?php if (is_array($socialIcons)) { ?>
-                <div class="social">
-                    <?php foreach ($socialIcons as $socialId => $socialLink) {
-                        echo '<a class="' . $socialId . '" href="' . $socialLink[0] . '" target="_blank" >' . $socialLink[1] . '</a>';
-                    } ?>
-                </div>
-            <?php } ?>
         </div>
         <div id="bot-bot">
             <div class="container">
@@ -44,6 +37,13 @@ $socialIcons = $socialLinks->getSocialLinks('svg', 'circle');
                         <span class="phone is-block is-inline-block-tablet" ><em>phone:</em> <a class="is-bold" href="tel:850-818-0213" >850-818-0213</a></span>
                         <span class="is-hidden-mobile" >|</span>
                         <span class="fax is-block is-inline-block-tablet" ><em>fax:</em> 850-818-0214</span></p>
+                    <?php if (is_array($socialIcons)) { ?>
+                        <div class="social">
+                            <?php foreach ($socialIcons as $socialId => $socialLink) {
+                                echo '<a class="' . $socialId . '" href="' . $socialLink[0] . '" target="_blank" >' . $socialLink[1] . '</a>';
+                            } ?>
+                        </div>
+                    <?php } ?>
                     <p class="copyright">&copy;<?php echo date('Y'); ?>&nbsp;<?php echo get_bloginfo(); ?>. All Rights&nbsp;Reserved. <span class="siteby">
                         <svg version="1.1" id="kma" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="14" width="20"

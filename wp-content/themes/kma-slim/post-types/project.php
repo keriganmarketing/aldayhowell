@@ -40,11 +40,16 @@ function project_init() {
 		'show_in_nav_menus'     => true,
 		'supports'              => array( 'title', 'editor' ),
 		'has_archive'           => true,
-		'rewrite'               => true,
+		'rewrite'            => [
+			'slug'       => 'projects',
+			'with_front' => true,
+			'feeds'      => true,
+			'pages'      => false
+		],
 		'query_var'             => true,
-		'menu_icon'             => 'dashicons-admin-post',
+		'menu_icon'             => 'dashicons-portfolio',
 		'show_in_rest'          => true,
-		'rest_base'             => 'project',
+		'rest_base'             => 'projects',
 		'rest_controller_class' => 'WP_REST_Posts_Controller',
 	) );
 
@@ -54,11 +59,16 @@ function cptMetaBox()
 {
 	$cpt = new CustomPostType('Project');
 
-	$cpt->addMetaBox('Photo Gallery', [
+	$cpt->addMetaBox('Project Details', [
+			'City' => 'text',
+			'State' => 'text',
+			'Cost' => 'text',
+			'Youtube Video ID' => 'text',
 			'Photo Gallery' => 'gallery',
-			'Featured Image' => 'image',
-			'Youtube Video Link' => 'text'
+			'Featured Image' => 'image'
 		]);
+
+	$cpt->addTaxonomy('client');
 }
 
 add_action( 'init', 'project_init' );
@@ -101,3 +111,48 @@ function project_updated_messages( $messages ) {
 	return $messages;
 }
 add_filter( 'post_updated_messages', 'project_updated_messages' );
+
+function getProjects($category = '', $limit = -1)
+{
+	$request = [
+		'posts_per_page' => $limit,
+		'offset'         => 0,
+		'order'          => 'ASC',
+		'orderby'        => 'menu_order',
+		'post_type'      => 'project',
+		'post_status'    => 'publish',
+	];
+
+	if ($category != '') {
+		$categoryarray        = [
+			[
+				'taxonomy'         => 'client',
+				'field'            => 'slug',
+				'terms'            => $category,
+				'include_children' => false,
+			],
+		];
+		$request['tax_query'] = $categoryarray;
+	}
+
+	$projectList = get_posts($request);
+
+	$projectArray = [];
+	foreach ($projectList as $project) {
+		array_push($projectArray, [
+			'id'             => (isset($project->ID) ? $project->ID : null),
+			'name'           => (isset($project->post_title) ? $project->post_title : null),
+			'slug'           => (isset($project->post_name) ? $project->post_name : null),
+			'featured_image' => (isset($project->project_details_featured_image) ? $project->project_details_featured_image : null),
+			'city'           => (isset($project->project_details_city) ? $project->project_details_city : null),
+			'state'          => (isset($project->project_details_state) ? $project->project_details_state : null),
+			'cost'           => (isset($project->project_details_cost) ? $project->project_details_cost : null),
+			'youtube_id'     => (isset($project->project_details_youtube_video_id) ? $project->project_details_youtube_video_id : null),
+			'photo_gallery'  => (isset($project->project_details_photo_gallery) ? $project->project_details_photo_gallery : null),
+			'description'    => (isset($project->post_content) ? $project->post_content : null),
+			'link'           => get_permalink($project->ID),
+		]);
+	}
+
+	return $projectArray;
+}

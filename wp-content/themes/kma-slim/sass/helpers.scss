@@ -43,8 +43,23 @@
   background-color: transparent;
 }
 
-.is-rounded {
+.is-round, .is-small.is-round {
   border-radius: 9999px;
+}
+
+.is-rounded-small {
+  overflow: hidden;
+  border-radius: $radius-small;
+}
+
+.is-rounded {
+  overflow: hidden;
+  border-radius: $radius;
+}
+
+.is-rounded-large {
+  overflow: hidden;
+  border-radius: $radius-large;
 }
 
 .is-aligned {

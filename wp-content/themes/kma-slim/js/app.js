@@ -11,6 +11,7 @@ import slider from './components/slider.vue'
 import slide from './components/slide.vue'
 import GoogleMap from './components/GoogleMap.vue'
 import GoogleMapPin from './components/GoogleMapPin.vue'
+import PhotoGallery from './components/PhotoGallery.vue';
 import VueParallaxJs from 'vue-parallax-js'
 
 window.Vue.use(VueParallaxJs, {
@@ -31,6 +32,7 @@ let app = new Vue({
         'slide': slide,
         'google-map': GoogleMap,
         'pin': GoogleMapPin,
+        'photo-gallery': PhotoGallery
     },
 
     data: {

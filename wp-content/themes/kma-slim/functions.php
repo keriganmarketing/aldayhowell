@@ -41,6 +41,11 @@ $slider->createAdminColumns();
 $team = new Team();
 $team->setupAdmin();
 
+PageField::addField('Sidebar Content',[
+	'Title' => 'text',
+	'html'  => 'wysiwyg'
+]);
+
 if ( ! function_exists( 'kmaslim_setup' ) ) :
 
 function kmaslim_setup() {

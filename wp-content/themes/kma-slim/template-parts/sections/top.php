@@ -24,12 +24,12 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
 </div>
 <div :class="['site-wrapper', { 'menu-open': isOpen }, {'full-height': footerStuck }, {'scrolling': isScrolling }]">
 <div class="site-mobile-overlay"></div>
-<header id="top" class="header">
+<header id="top" :class="['header', {'modal-open': modalOpen}]">
     <div class="container">
         <nav class="navbar">
 
             <div class="navbar-brand">
-                <?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
+                <?php if ( get_theme_mod( 'kmaslim_logo' ) ) : ?>
                     <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
                         <img src='<?php echo esc_url( get_theme_mod( 'kmaslim_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
                     </a>
