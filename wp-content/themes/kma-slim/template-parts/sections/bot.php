@@ -2,6 +2,7 @@
 
 use Includes\Modules\Social\SocialSettingsPage;
 use Includes\Modules\Navwalker\BulmaNavwalker;
+use Includes\Modules\Helpers\PageField;
 
 /**
  * @package KMA
@@ -31,28 +32,42 @@ $socialIcons = $socialLinks->getSocialLinks('svg', 'circle');
         </div>
         <div id="bot-bot">
             <div class="container">
-                <div class="is-flex-column is-justified is-aligned">
-                    <p class="contact-info"><span class="address is-block is-inline-block-tablet" >647&nbsp;Jenks&nbsp;Ave. Suite&nbsp;A, Panama&nbsp;City,&nbsp;Florida&nbsp;32401</span>
-                        <span class="is-hidden-mobile" >|</span>
-                        <span class="phone is-block is-inline-block-tablet" ><em>phone:</em> <a class="is-bold" href="tel:850-818-0213" >850-818-0213</a></span>
-                        <span class="is-hidden-mobile" >|</span>
-                        <span class="fax is-block is-inline-block-tablet" ><em>fax:</em> 850-818-0214</span></p>
-                    <?php if (is_array($socialIcons)) { ?>
-                        <div class="social">
-                            <?php foreach ($socialIcons as $socialId => $socialLink) {
-                                echo '<a class="' . $socialId . '" href="' . $socialLink[0] . '" target="_blank" >' . $socialLink[1] . '</a>';
-                            } ?>
-                        </div>
-                    <?php } ?>
-                    <p class="copyright">&copy;<?php echo date('Y'); ?>&nbsp;<?php echo get_bloginfo(); ?>. All Rights&nbsp;Reserved. <span class="siteby">
-                        <svg version="1.1" id="kma" xmlns="http://www.w3.org/2000/svg"
-                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="14" width="20"
-                             viewBox="0 0 12.5 8.7" style="enable-background:new 0 0 12.5 8.7;"
-                             xml:space="preserve">
-                                <path fill="#b4be35"
-                              d="M6.4,0.1c0,0,0.1,0.3,0.2,0.9c1,3,3,5.6,5.7,7.2l-0.1,0.5c0,0-0.4-0.2-1-0.4C7.7,7,3.7,7,0.2,8.5L0.1,8.1 c2.8-1.5,4.8-4.2,5.7-7.2C6,0.4,6.1,0.1,6.1,0.1H6.4L6.4,0.1z"></path>
-                        </svg> &nbsp;<a href="https://keriganmarketing.com">Site&nbsp;by&nbsp;KMA</a>.
-                    </span></p>
+                <div class="columns is-multiline is-justified">
+                    <div class="column is-narrow p-4">
+                        <h4 class="title is-6 is-white is-caps is-bold">Contact:</h3>
+                        <p><em>phone:</em> <a href="tel:<?= PageField::getField('contact_info_phone_number', 20); ?>" ><?= PageField::getField('contact_info_phone_number', 20); ?></a></p>
+                        <p><em>fax:</em> <?= PageField::getField('contact_info_fax_number', 20); ?></p>
+                    </div>
+                    <div class="column is-narrow p-4">
+                        <h4 class="title is-6 is-white is-caps is-bold">Office Location:</h3>
+                        <p><?= nl2br(PageField::getField('contact_info_office_location', 20)); ?></p>
+                    </div>
+                    <div class="column is-narrow p-4">
+                        <h4 class="title is-6 is-white is-caps is-bold">Office Location:</h3>
+                        <p><?= nl2br(PageField::getField('contact_info_mailing_address', 20)); ?></p>
+                    </div>
+                    <div class="column is-narrow p-4">
+                        <?php if (is_array($socialIcons)) { ?>
+                            <div class="social is-flex-column">
+                                <?php foreach ($socialIcons as $socialId => $socialLink) {
+                                    echo '<a class="' . $socialId . '" href="' . $socialLink[0] . '" target="_blank" >' . $socialLink[1] . '</a>';
+                                } ?>
+                            </div>
+                        <?php } ?>
+                    </div>
+                
+                    <div class="column is-12 has-text-centered">
+                        <p class="copyright">&copy;<?php echo date('Y'); ?>&nbsp;<?php echo get_bloginfo(); ?>. All Rights&nbsp;Reserved. <span class="siteby">
+                            <svg version="1.1" id="kma" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="14" width="20"
+                                viewBox="0 0 12.5 8.7" style="enable-background:new 0 0 12.5 8.7;"
+                                xml:space="preserve">
+                                    <path fill="#b4be35"
+                                d="M6.4,0.1c0,0,0.1,0.3,0.2,0.9c1,3,3,5.6,5.7,7.2l-0.1,0.5c0,0-0.4-0.2-1-0.4C7.7,7,3.7,7,0.2,8.5L0.1,8.1 c2.8-1.5,4.8-4.2,5.7-7.2C6,0.4,6.1,0.1,6.1,0.1H6.4L6.4,0.1z"></path>
+                            </svg> &nbsp;<a href="https://keriganmarketing.com">Site&nbsp;by&nbsp;KMA</a>.
+                        </span></p>
+                    </div>
+
                 </div>
             </div>
         </div>

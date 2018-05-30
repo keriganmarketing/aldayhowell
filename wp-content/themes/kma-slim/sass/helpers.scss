@@ -99,6 +99,15 @@
   order: 3;
 }
 
+.px-4 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.p-4 {
+  padding: 1.5rem;
+}
+
 .is-first-tablet {
   @media screen and (min-width: $tablet) {
     order: 1;

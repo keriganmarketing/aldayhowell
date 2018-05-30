@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="card-content">
-            <h4 class="title is-5"><strong><?= $project['name']; ?></strong></h4>
+            <p class="title"><strong><?= $project['name']; ?></strong></p>
             <p class="text-small">Location: <?= $project['city']; ?>, <?= $project['state']; ?><br>
             Client: <?= $client->name; ?><br>
             Cost: <?= $project['cost']; ?></p>

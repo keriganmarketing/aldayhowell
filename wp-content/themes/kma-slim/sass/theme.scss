@@ -464,24 +464,11 @@ body {
 }
 
 #bot-bot {
-  padding: 2rem .5rem;
+  padding: 2rem .5rem 1rem;
 
-  .contact-info {
-    text-align: center;
-    padding-bottom: 2rem;
-    font-size: 1.2em;
-
-    span {
-      padding: .5rem 0;
-    }
-
-    @media screen and (min-width: $tablet) {
-      padding-bottom: 5rem;
-
-      span {
-        padding: 0 .5rem;
-      }
-    }
+  h4, p {
+    margin-bottom: 0 !important;
+    line-height: 2em;
   }
 
   p, a {
@@ -687,6 +674,11 @@ body {
 
       p {
         font-size: 14px;
+      }
+      p.title {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.4em !important;
       }
     }
     .card-button {
