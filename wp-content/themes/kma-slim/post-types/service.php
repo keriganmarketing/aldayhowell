@@ -84,3 +84,22 @@ function service_updated_messages( $messages ) {
 	return $messages;
 }
 add_filter( 'post_updated_messages', 'service_updated_messages' );
+
+function getServices($limit = -1)
+{
+    $request = [
+        'posts_per_page' => $limit,
+        'offset'         => 0,
+        'order'          => 'ASC',
+        'orderby'        => 'menu_order',
+        'post_type'      => 'service',
+        'post_status'    => 'publish',
+    ];
+
+    $serviceArray = [];
+    foreach (get_posts($request) as $service) {
+        array_push($serviceArray, $service);
+    }
+
+    return $serviceArray;
+}

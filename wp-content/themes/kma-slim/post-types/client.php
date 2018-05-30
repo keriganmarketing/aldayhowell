@@ -72,3 +72,12 @@ function client_updated_messages( $messages ) {
 	return $messages;
 }
 add_filter( 'term_updated_messages', 'client_updated_messages' );
+
+function getClients($hideEmpty = false, $limit = 0){
+	$clients = get_terms([
+		'taxonomy'   => 'client', 
+		'hide_empty' => $hideEmpty
+	]);
+
+	return ($limit > 0 && $limit < count($clients) ? array_slice($clients, 0, $limit) : $clients);
+}

@@ -19,11 +19,10 @@ include(locate_template('template-parts/sections/top.php'));
                 <div class="content">
                     <?php include(locate_template('template-parts/sections/support-heading.php')); ?>
                     <?php the_content();?>
-                    <ul>
-                        <?php foreach (getClients(true) as $client) { ?>
-                            <li><a name="<?= $client->slug; ?>">&nbsp;</a><?= $client->name; ?></li>
-                        <?php } ?>
-                    </ul>
+                    <?php foreach (getServices() as $service) { ?>
+                        <h2><?= $service->post_title; ?></h2>
+                        <?= $service->post_content; ?>
+                    <?php } ?>
                 </div><!-- .entry-content -->
             </div>
         </section>

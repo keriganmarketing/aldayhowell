@@ -8,10 +8,9 @@
         <div class="feature-box is-full-height is-flex-column is-justified-between is-aligned">
             <h3 class="title is-2">Services</h3>
             <ul>
-                <li><a href="/services/#transportation">Transportation</a></li>
-                <li><a href="/services/#transportation">Transportation</a></li>
-                <li><a href="/services/#transportation">Transportation</a></li>
-                <li><a href="/services/#transportation">Transportation</a></li>
+                <?php foreach(getServices(4) as $service){ ?>
+                <li><a href="/services/#<?= $service->post_name; ?>"><?= $service->post_title; ?></a></li>
+                <?php } ?>
             </ul>
             <a class="button is-outlined is-round is-caps is-bold" href="/services/">All Services</a>
         </div>
@@ -20,7 +19,9 @@
         <div class="feature-box is-full-height is-flex-column is-justified-between is-aligned">
             <h3 class="title is-2">Clients</h3>
             <ul>
-                <li><a href="/clients/">Florida Department of Transportation</a></li>
+                <?php foreach (getClients(true, 4) as $client) { ?>
+                <li><a href="/clients/#<?= $client->slug; ?>"><?= $client->name; ?></a></li>
+                <?php } ?>
             </ul>
             <a class="button is-outlined is-round is-caps is-bold" href="/clients/">All Clients</a>
         </div>
