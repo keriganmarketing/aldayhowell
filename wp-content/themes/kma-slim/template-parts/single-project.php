@@ -10,8 +10,7 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
 
 $youtubeId     = $post->project_details_youtube_video_id;
 $featuredImage = $post->project_details_featured_image;
-$city          = $post->project_details_city;
-$state         = $post->project_details_state;
+$location      = $post->project_details_location;
 $cost          = $post->project_details_cost;
 $photoGallery  = $post->project_details_photo_gallery;
 
@@ -24,14 +23,14 @@ include(locate_template('template-parts/sections/top.php'));
             <div class="container">
                 <div class="content">
                     <?php include(locate_template('template-parts/sections/support-heading.php')); ?>
-                    <div class="columns is-multiline" >
+                    <div class="columns is-multiline">
                         <div class="column is-5">
-                            <h2 class="title is-3"><?= $city; ?>, <?= $state; ?></h2>
+                            <h2 class="title is-3"><?= $location; ?></h2>
                             <h3 class="subtitle"><?= $cost; ?></h3>
-                            <?php the_content();?>
+                            <?php the_content(); ?>
                         </div>
                         <div class="column is-7">
-                            <?php if(isset($youtubeId)){ ?>
+                            <?php if($youtubeId!=''){ ?>
                                 <div class="responsive-embed">
                                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/<?= $youtubeId; ?>?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                 </div>
