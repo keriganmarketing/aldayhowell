@@ -40,7 +40,7 @@ include(locate_template('template-parts/sections/top.php'));
                         </div>
                     </div>
                     <p>&nbsp;</p>
-                    <?php if(isset($photoGallery)){
+                    <?php if($photoGallery!=''){
                         $photoGallery = explode('|',$photoGallery);
                         $photos = [];
                         foreach($photoGallery as $key => $photo){  
