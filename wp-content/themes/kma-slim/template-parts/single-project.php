@@ -40,6 +40,7 @@ include(locate_template('template-parts/sections/top.php'));
                         </div>
                     </div>
                     <p>&nbsp;</p>
+
                     <?php if($photoGallery!=''){
                         $photoGallery = explode('|',$photoGallery);
                         $photos = [];
@@ -50,9 +51,10 @@ include(locate_template('template-parts/sections/top.php'));
                                 'name' => $photoArray['image_meta']['title'],
                                 'url'  => '/wp-content/uploads/'.$photoArray['file']
                             ];
-                        } 
-                    } ?>
-                    <photo-gallery :data-photos='<?= json_encode($photos); ?>' ></photo-gallery>
+                        } ?>
+                        <photo-gallery :data-photos='<?= json_encode($photos); ?>' ></photo-gallery>
+                    <?php } ?>
+                    
                 </div><!-- .entry-content -->
             </div>
         </section>
