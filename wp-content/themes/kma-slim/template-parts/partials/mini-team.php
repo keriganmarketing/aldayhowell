@@ -4,7 +4,9 @@ $member = (isset($member) ? $member : null);
 <div class="column is-6 is-4-widescreen">
     <div class="member is-full-height has-text-centered">
         <div class="image is-square">
+            <a href="<?= $member['link']; ?>">
             <img src="<?= $member['images']['thumbnail'][0]; ?>" >
+            </a>
         </div>
         <h3 class="title is-3 is-secondary"><?= $member['name']; ?></h3>
         <p class="subtitle is-6"><?= $member['title']; ?></p>

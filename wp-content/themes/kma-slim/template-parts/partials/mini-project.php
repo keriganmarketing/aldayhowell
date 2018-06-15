@@ -3,7 +3,7 @@
     <div class="card is-rounded">
         <div class="card-image">
             <div class="project-photo-crop">
-                <img src="<?= $project['featured_image']; ?>" alt="<?= $project['name']; ?>" >
+                <img src="<?= $project['featured_image']['thumbnail'][0]; ?>" alt="<?= $project['name']; ?>" >
             </div>
         </div>
         <div class="card-content">
@@ -17,3 +17,6 @@
         </div>
     </div>
 </div>
+<pre>
+    <?php print_r($project); ?>
+</pre>

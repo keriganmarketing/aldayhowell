@@ -242,6 +242,17 @@ body {
         box-shadow: none;
         border: none;
       }
+
+      &.menu-item-has-children {
+        padding-right:1.75rem;
+        
+        &::after {
+          border: 2px solid #FFF;
+          border-right: 0;
+          border-top: 0;
+          right: .5rem;
+        }
+      }
     }
 
     .navbar-dropdown {
@@ -655,7 +666,21 @@ body {
 .team {
   .member {
     .image {
-      border: 1px solid #d2d2d2;
+      border-radius: 4px;
+      overflow:hidden;
+      
+      img {
+        border-radius: 4px;
+        border: 1px solid $secondary;
+      }
+
+      a:hover {
+
+        img {
+          border: 1px solid $primary;
+        }
+      }
+
     }
     .title {
       margin-top: 1rem;
@@ -669,10 +694,11 @@ body {
   }
 }
 
-.single-member {
+.team_member {
   .sidebar {
     .image {
-      border: 1px solid #d2d2d2;
+      border-radius: 4px;
+      overflow:hidden;
     }
     .title {
       margin-top: 1rem;
@@ -689,7 +715,11 @@ body {
 .projects {
   .card {
     .card-image {
-
+      .project-photo-crop {
+        img {
+          width:100%;
+        }
+      }
     }
     .card-content {
 

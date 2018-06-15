@@ -112,6 +112,21 @@ function project_updated_messages( $messages ) {
 }
 add_filter( 'post_updated_messages', 'project_updated_messages' );
 
+function getImageSizes($url){
+    $parsed_url  = explode( parse_url( WP_CONTENT_URL, PHP_URL_PATH ), $url );
+    $this_host = str_ireplace( 'www.', '', parse_url( home_url(), PHP_URL_HOST ) );
+    $file_host = str_ireplace( 'www.', '', parse_url( $url, PHP_URL_HOST ) );
+
+    if ( ! isset( $parsed_url[1] ) || empty( $parsed_url[1] ) || ( $this_host != $file_host ) ) {
+        return;
+    }
+
+    global $wpdb;
+    $attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->prefix}posts WHERE guid RLIKE %s;", $parsed_url[1] ) );
+
+    return $attachment[0];
+}
+
 function getProjects($category = '', $limit = -1)
 {
     $request = [
@@ -143,7 +158,12 @@ function getProjects($category = '', $limit = -1)
             'id'             => (isset($project->ID) ? $project->ID : null),
             'name'           => (isset($project->post_title) ? $project->post_title : null),
             'slug'           => (isset($project->post_name) ? $project->post_name : null),
-            'featured_image' => (isset($project->project_details_featured_image) ? $project->project_details_featured_image : null),
+            'featured_image' => [
+                'thumbnail' => wp_get_attachment_image_src(getImageSizes($project->project_details_featured_image), 'thumbnail'),
+                'medium'    => wp_get_attachment_image_src(getImageSizes($project->project_details_featured_image), 'medium'),
+                'large'     => wp_get_attachment_image_src(getImageSizes($project->project_details_featured_image), 'large'),
+                'full'      => wp_get_attachment_image_src(getImageSizes($project->project_details_featured_image), 'full')
+            ],
             'city'           => (isset($project->project_details_city) ? $project->project_details_city : null),
             'state'          => (isset($project->project_details_state) ? $project->project_details_state : null),
             'cost'           => (isset($project->project_details_cost) ? $project->project_details_cost : null),

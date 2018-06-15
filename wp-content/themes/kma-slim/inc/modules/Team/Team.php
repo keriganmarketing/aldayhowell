@@ -186,9 +186,11 @@ class Team
             $data = $this->getTeam();
             ob_start();
 
+            echo'<div class="columns is-multiline team">';
             foreach($data as $member){
                 include(locate_template('template-parts/partials/mini-team.php'));
             }
+            echo '</div>';
 
             return ob_get_clean();
 
