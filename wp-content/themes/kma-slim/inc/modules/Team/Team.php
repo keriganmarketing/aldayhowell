@@ -20,6 +20,7 @@ class Team
     {
         $this->createPostType();
         $this->createAdminColumns();
+        $this->setupShortcode();
     }
 
     public function createPostType()
@@ -176,5 +177,21 @@ class Team
         }
 
         return $output;
+    }
+
+    public function setupShortcode()
+    {
+        add_shortcode( 'team', function( $atts ){
+
+            $data = $this->getTeam();
+            ob_start();
+
+            foreach($data as $member){
+                include(locate_template('template-parts/partials/mini-team.php'));
+            }
+
+            return ob_get_clean();
+
+        } );
     }
 }
