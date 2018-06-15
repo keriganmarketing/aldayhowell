@@ -1,3 +1,11 @@
+.pad-anchor {
+  position: absolute;
+  margin-top: -180px;
+
+  @supports (-ms-ime-align:auto) {
+    padding-bottom: 140px;
+  }
+}
 
 .is-flex-column {
   display: flex;
