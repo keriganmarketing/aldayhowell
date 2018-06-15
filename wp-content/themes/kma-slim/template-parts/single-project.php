@@ -13,6 +13,7 @@ $featuredImage = $post->project_details_featured_image;
 $location      = $post->project_details_location;
 $cost          = $post->project_details_cost;
 $photoGallery  = $post->project_details_photo_gallery;
+$client        = get_the_terms($post->ID, 'client')[0];
 
 include(locate_template('template-parts/sections/top.php'));
 ?>
@@ -25,7 +26,8 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php include(locate_template('template-parts/sections/support-heading.php')); ?>
                     <div class="columns is-multiline">
                         <div class="column is-5">
-                            <h2 class="title is-3"><?= $location; ?></h2>
+                            <h2 class="title is-3"><?= $client->name; ?></h2>
+                            <h3 class="subtitle"><?= $location; ?></h3>
                             <h3 class="subtitle"><?= $cost; ?></h3>
                             <?php the_content(); ?>
                         </div>
