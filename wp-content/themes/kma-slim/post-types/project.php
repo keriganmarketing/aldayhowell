@@ -60,8 +60,7 @@ function cptMetaBox()
     $cpt = new CustomPostType('Project');
 
     $cpt->addMetaBox('Project Details', [
-            'City' => 'text',
-            'State' => 'text',
+            'Location' => 'text',
             'Cost' => 'text',
             'Youtube Video ID' => 'text',
             'Photo Gallery' => 'gallery',
@@ -164,8 +163,7 @@ function getProjects($category = '', $limit = -1)
                 'large'     => wp_get_attachment_image_src(getImageSizes($project->project_details_featured_image), 'large'),
                 'full'      => wp_get_attachment_image_src(getImageSizes($project->project_details_featured_image), 'full')
             ],
-            'city'           => (isset($project->project_details_city) ? $project->project_details_city : null),
-            'state'          => (isset($project->project_details_state) ? $project->project_details_state : null),
+            'location'       => (isset($project->project_details_location) ? $project->project_details_location : null),
             'cost'           => (isset($project->project_details_cost) ? $project->project_details_cost : null),
             'youtube_id'     => (isset($project->project_details_youtube_video_id) ? $project->project_details_youtube_video_id : null),
             'photo_gallery'  => (isset($project->project_details_photo_gallery) ? $project->project_details_photo_gallery : null),
