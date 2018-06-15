@@ -3,7 +3,7 @@ $member = (isset($member) ? $member : null);
 ?>
 <div class="column is-6 is-4-widescreen">
     <div class="member is-full-height has-text-centered">
-        <div class="image is-square">
+        <div class="image">
             <a href="<?= $member['link']; ?>">
             <img src="<?= $member['images']['thumbnail'][0]; ?>" >
             </a>
