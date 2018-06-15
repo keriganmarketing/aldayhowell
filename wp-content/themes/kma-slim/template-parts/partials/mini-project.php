@@ -1,6 +1,6 @@
 <?php ?>
 <div class="column is-3">
-    <div class="card is-rounded">
+    <div class="card is-rounded is-full-height is-flex-column">
         <div class="card-image">
             <div class="project-photo-crop">
                 <img src="<?= $project['featured_image']['thumbnail'][0]; ?>" alt="<?= $project['name']; ?>" >
