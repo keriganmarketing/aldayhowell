@@ -4321,6 +4321,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -11134,6 +11137,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "points": "94.35,0 58.65,35.7 175.95,153 58.65,270.3 94.35,306 247.35,153"
     }
   })])]), _vm._v(" "), _c('a', {
+    staticClass: "button is-white is-round",
+    on: {
+      "click": _vm.closeViewer
+    }
+  }, [_vm._v("close")]), _vm._v(" "), _c('a', {
     staticStyle: {
       "margin": "0 1rem"
     },
