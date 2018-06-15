@@ -8,9 +8,11 @@
         </div>
         <div class="card-content">
             <p class="title"><strong><?= $project['name']; ?></strong></p>
-            <p class="text-small"><?= $project['location']; ?><br>
-            <?= $client->name; ?><br>
-            <?= $project['cost']; ?></p>
+            <p class="text-small">
+                <?= ($project['location']!='' ? $project['location'] . '<br>' : ''); ?>
+                <?= ($client->name!='' ? $client->name . '<br>' : ''); ?>
+                <?= ($project['cost']!='' ? $project['cost'] : ''); ?>
+            </p>
         </div>
         <div class="card-button">
             <a class="button is-small is-primary is-outlined is-round is-caps" href="<?= $project['link']; ?>">Project Details</a>
