@@ -724,7 +724,7 @@ body {
       }
     }
     .card-content {
-
+        padding:0 .5rem;
       p {
         font-size: 14px;
       }
@@ -736,6 +736,10 @@ body {
     }
     .card-button {
       padding:1rem;
+      flex-grow: 1;
+      align-items: flex-end;
+      display: flex;
+      justify-content: center;
     }
   }
 }
