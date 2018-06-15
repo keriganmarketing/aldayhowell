@@ -718,6 +718,9 @@ body {
   .card {
     .card-image {
       .project-photo-crop {
+        height: 220px;
+        overflow: hidden;
+  
         img {
           width:100%;
         }
