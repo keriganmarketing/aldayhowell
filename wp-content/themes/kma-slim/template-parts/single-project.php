@@ -45,13 +45,17 @@ include(locate_template('template-parts/sections/top.php'));
 
                     <?php if($photoGallery!=''){
                         $photoGallery = explode('|',$photoGallery);
+                        //echo '<pre>',print_r($photoGallery),'</pre>';
                         $photos = [];
                         foreach($photoGallery as $key => $photo){  
                             $photoArray = wp_get_attachment_metadata($photo);
+                            //echo '<pre>',print_r($photoArray),'</pre>';
+                            $folders = explode('/',$photoArray['file']);
+                            $folderPath = $folders[0].'/'.$folders[1];
                             $photos[] = [
                                 'id'  => $key,
                                 'name' => $photoArray['image_meta']['title'],
-                                'url'  => '/wp-content/uploads/'.$photoArray['file']
+                                'url'  => '/wp-content/uploads/'.$folderPath.'/'.$photoArray['sizes']['thumbnail']['file']
                             ];
                         } ?>
                         <photo-gallery :data-photos='<?= json_encode($photos); ?>' ></photo-gallery>
