@@ -77,7 +77,9 @@ function getClients($hideEmpty = false, $featured = false, $limit = 0){
 
 	$request = [
 		'taxonomy'   => 'client', 
-		'hide_empty' => $hideEmpty
+		'hide_empty' => $hideEmpty,
+		'orderby'    => 'name', 
+		'order'      => 'ASC'
 	];
 
 	if($featured){
