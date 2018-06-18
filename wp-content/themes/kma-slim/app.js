@@ -11099,7 +11099,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "max-height": "100%"
     },
     attrs: {
-      "src": _vm.activePhoto.url,
+      "src": _vm.activePhoto.large,
       "alt": _vm.activePhoto.name
     }
   })]), _vm._v(" "), _c('div', {

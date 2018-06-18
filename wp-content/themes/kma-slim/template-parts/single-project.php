@@ -53,9 +53,10 @@ include(locate_template('template-parts/sections/top.php'));
                             $folders = explode('/',$photoArray['file']);
                             $folderPath = $folders[0].'/'.$folders[1];
                             $photos[] = [
-                                'id'  => $key,
-                                'name' => $photoArray['image_meta']['title'],
-                                'url'  => '/wp-content/uploads/'.$folderPath.'/'.$photoArray['sizes']['thumbnail']['file']
+                                'id'    => $key,
+                                'name'  => $photoArray['image_meta']['title'],
+                                'url'   => '/wp-content/uploads/'.$folderPath.'/'.$photoArray['sizes']['thumbnail']['file'],
+                                'large' => '/wp-content/uploads/'.$folderPath.'/'.$photoArray['sizes']['large']['file']
                             ];
                         } ?>
                         <photo-gallery :data-photos='<?= json_encode($photos); ?>' ></photo-gallery>
