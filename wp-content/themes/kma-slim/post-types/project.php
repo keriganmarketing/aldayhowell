@@ -1,6 +1,7 @@
 <?php
 
 use KeriganSolutions\CPT\CustomPostType;
+use KeriganSolutions\CPT\TaxonomyMeta;
 
 /**
  * Registers the `project` post type.
@@ -68,6 +69,8 @@ function cptMetaBox()
         ]);
 
     $cpt->addTaxonomy('client');
+    $cpt->createTaxonomyMeta( 'client', [ 'label' => 'Featured', 'type' => 'boolean' ] );
+
 }
 
 add_action( 'init', 'project_init' );
