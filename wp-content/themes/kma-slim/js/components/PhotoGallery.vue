@@ -4,7 +4,7 @@
             <div class="columns is-multiline" >
                 <div class="column is-6 is-4-desktop is-3-widescreen" v-for="(photo, index) in photos" v-bind:key="photo.id" >
                     <div class="photo-tile has-text-centered" @click="openViewer(index)">
-                        <figure class="image is-3by2 hide-overflow">
+                        <figure class="image is-square hide-overflow">
                             <img :id="'photo-' + photo.id" :src="photo.url" :alt="photo.name" >
                         </figure>
                         <p>{{ photo.name }}</p>

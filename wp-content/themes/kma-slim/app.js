@@ -11061,7 +11061,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_c('figure', {
-      staticClass: "image is-3by2 hide-overflow"
+      staticClass: "image is-square hide-overflow"
     }, [_c('img', {
       attrs: {
         "id": 'photo-' + photo.id,
