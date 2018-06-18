@@ -20,7 +20,7 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php include(locate_template('template-parts/sections/support-heading.php')); ?>
                     <?php the_content();?>
                     <ul>
-                        <?php foreach (getClients(true) as $client) { ?>
+                        <?php foreach (getClients(false,false) as $client) { ?>
                             <li><a name="<?= $client->slug; ?>">&nbsp;</a><?= $client->name; ?></li>
                         <?php } ?>
                     </ul>

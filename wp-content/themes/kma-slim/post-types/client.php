@@ -73,11 +73,19 @@ function client_updated_messages( $messages ) {
 }
 add_filter( 'term_updated_messages', 'client_updated_messages' );
 
-function getClients($hideEmpty = false, $limit = 0){
-	$clients = get_terms([
+function getClients($hideEmpty = false, $featured = false, $limit = 0){
+
+	$request = [
 		'taxonomy'   => 'client', 
 		'hide_empty' => $hideEmpty
-	]);
+	];
+
+	if($featured){
+		$request['meta_key'] = 'client_featured';
+		$request['meta_value'] = 'on';
+	}
+
+	$clients = get_terms($request);	
 
 	return ($limit > 0 && $limit < count($clients) ? array_slice($clients, 0, $limit) : $clients);
 }

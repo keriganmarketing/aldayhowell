@@ -19,7 +19,7 @@
         <div class="feature-box is-full-height is-flex-column is-justified-between is-aligned">
             <h3 class="title is-2">Clients</h3>
             <ul>
-                <?php foreach (getClients(true, 4) as $client) { ?>
+                <?php foreach (getClients(false,true,4) as $client) { ?>
                 <li><a href="/clients/#<?= $client->slug; ?>"><?= $client->name; ?></a></li>
                 <?php } ?>
             </ul>
