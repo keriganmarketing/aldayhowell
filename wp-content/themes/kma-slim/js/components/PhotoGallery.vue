@@ -15,7 +15,7 @@
         <div class="modal is-active" style="z-index:999; height:100vh; background-color: rgba(0,0,0,.9)" v-if="galleryIsOpen" >
             <div class="is-flex-col is-justified is-aligned" style="padding:1rem;">
                 <div class="is-flex-row is-justified is-aligned" style="height: 85vh; overflow:hidden; padding:1rem;" @click="closeViewer()" >
-                    <img :src="activePhoto.url" :alt="activePhoto.name" style="max-width:100%;max-height:100%;" />
+                    <img :src="activePhoto.large" :alt="activePhoto.name" style="max-width:100%;max-height:100%;" />
                 </div>
                 <div class="is-flex-row is-justified is-aligned" style="height: 10vh;" >
                     <a style="margin: 0 1rem;" @click="prevPhoto(activePhoto.index)">
