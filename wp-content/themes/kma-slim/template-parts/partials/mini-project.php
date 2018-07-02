@@ -1,5 +1,5 @@
 <?php ?>
-<div class="column is-6-tablet is-3-desktop">
+<div class="column is-6-tablet is-3-widescreen">
     <div class="card is-rounded is-full-height is-flex-column">
         <div class="card-image">
             <div class="project-photo-crop">
