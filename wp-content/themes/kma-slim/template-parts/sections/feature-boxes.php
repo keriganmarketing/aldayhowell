@@ -9,7 +9,7 @@
             <h3 class="title is-2">Services</h3>
             <ul>
                 <?php foreach(getServices(4) as $service){ ?>
-                <li><a href="/services/#<?= $service->post_name; ?>"><?= $service->post_title; ?></a></li>
+                <li><a href="/services/#<?= $service->post_name; ?>"><?= $service->post_title; ?> <i class="fa fa-play" aria-hidden="true"></i></a></li>
                 <?php } ?>
             </ul>
             <a class="button is-outlined is-round is-caps is-bold" href="/services/">All Services</a>
@@ -20,7 +20,7 @@
             <h3 class="title is-2">Clients</h3>
             <ul>
                 <?php foreach (getClients(false,true,4) as $client) { ?>
-                <li><a href="/clients/#<?= $client->slug; ?>"><?= $client->name; ?></a></li>
+                <li><a href="/clients/#<?= $client->slug; ?>"><?= $client->name; ?> <i class="fa fa-play" aria-hidden="true"></i></a></li>
                 <?php } ?>
             </ul>
             <a class="button is-outlined is-round is-caps is-bold" href="/clients/">All Clients</a>
