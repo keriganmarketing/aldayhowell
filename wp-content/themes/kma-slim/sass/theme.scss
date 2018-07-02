@@ -113,6 +113,14 @@ body {
           }
 
         }
+
+        .navbar-dropdown{
+          background-color: #FFF;
+          border-bottom: 1px solid #488ABE;
+          .navbar-item {
+            border-bottom: none !important;
+          }
+        } 
       }
     }
   }
