@@ -18,7 +18,7 @@ $socialIcons = $socialLinks->getSocialLinks('svg', 'circle');
         <div id="bot" class="is-flex-column is-aligned has-text-centered">
             <div class="bottom-nav">
                 <?php wp_nav_menu([
-                    'theme_location' => 'main-menu',
+                    'theme_location' => 'footer-menu',
                     'container'      => false,
                     'menu_class'     => 'navbar is-transparent is-justified is-aligned',
                     'fallback_cb'    => '',
