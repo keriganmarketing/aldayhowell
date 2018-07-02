@@ -26,9 +26,9 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php include(locate_template('template-parts/sections/support-heading.php')); ?>
                     <div class="columns is-multiline">
                         <div class="column is-5">
-                            <p><strong>Client:</strong><br> <?= $client->name; ?></p>
-                            <p><strong>Location:</strong><br> <?= $location; ?></p>
-                            <p><strong>Cost:</strong><br> <?= $cost; ?></p>
+                            <?php if($client != ''){ ?><p><strong>Client:</strong><br> <?= $client->name; ?></p><?php } ?>
+                            <?php if($location != ''){ ?><p><strong>Location:</strong><br> <?= $location; ?></p><?php } ?>
+                            <?php if($cost != ''){ ?><p><strong>Cost:</strong><br> <?= $cost; ?></p><?php } ?>
                             <?php the_content(); ?>
                         </div>
                         <div class="column is-7">
