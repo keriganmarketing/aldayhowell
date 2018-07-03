@@ -30,8 +30,6 @@ let app = new Vue({
         'tab': tab,
         'slider': slider,
         'slide': slide,
-        'google-map': GoogleMap,
-        'pin': GoogleMapPin,
         'photo-gallery': PhotoGallery
     },
 
