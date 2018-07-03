@@ -57,7 +57,7 @@ $socialIcons = $socialLinks->getSocialLinks('svg', 'circle');
                     </div>
                 
                     <div class="column is-12 has-text-centered">
-                        <p class="copyright">&copy;<?php echo date('Y'); ?>&nbsp;<?php echo get_bloginfo(); ?>. All Rights&nbsp;Reserved. <span class="siteby">
+                        <p class="copyright">&copy;<?php echo date('Y'); ?>&nbsp;<?php echo get_bloginfo(); ?>. All Rights&nbsp;Reserved. <a style="text-decoration:underline;" href="/privacy-policy" >Privacy Policy</a> <span class="siteby">
                             <svg version="1.1" id="kma" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="14" width="20"
                                 viewBox="0 0 12.5 8.7" style="enable-background:new 0 0 12.5 8.7;"
