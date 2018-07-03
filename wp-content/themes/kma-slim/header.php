@@ -14,7 +14,6 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRXeRhZCIYcKhtc-rfHCejAJsEW9rYtt4" ></script>
 </head>
 
 <body <?php body_class(); ?> >
