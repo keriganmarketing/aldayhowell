@@ -14,9 +14,9 @@ import slide from './components/slide.vue'
 import PhotoGallery from './components/PhotoGallery.vue';
 // import VueParallaxJs from 'vue-parallax-js'
 
-window.Vue.use(VueParallaxJs, {
-    minWidth: 1000,
-})
+// window.Vue.use(VueParallaxJs, {
+//     minWidth: 1000,
+// })
 
 let app = new Vue({
 
