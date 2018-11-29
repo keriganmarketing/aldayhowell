@@ -87,6 +87,8 @@ class Leads
         if(!$this->validateSubmission($dataSubmitted)){ return false; }
         $this->addToDashboard($dataSubmitted);
         $this->sendNotifications($dataSubmitted);
+
+        return true;
     }
 
     /*
