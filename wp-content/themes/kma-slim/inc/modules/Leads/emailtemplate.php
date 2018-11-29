@@ -12,7 +12,7 @@
         a { color: #D85035; }
     </style>
 </head>
-<body bgcolor="#EAEAEA" style="background-color:#EAEAEA;">
+<body bgcolor="#e8f0fd" style="background-color:#e8f0fd;">
 <table
     cellpadding="0"
     cellspacing="0"
@@ -24,7 +24,7 @@
     bgcolor="#FFFFFF" >
     <tbody>
     <tr>
-        <td style="padding:20px; border:1px solid #ddd; border-top:10px solid #123F7B; border-bottom: 0;" >
+        <td style="padding:20px; border:1px solid #ddd; border-top:10px solid #335580; border-bottom: 0;" >
             <h2>{headline}</h2>
             <p>{introcopy}</p>
 
@@ -36,7 +36,7 @@
         </td>
     </tr>
     <tr>
-        <td style="border-bottom: #D85035 solid 2px; border-left:1px solid #ddd; border-right:1px solid #ddd; padding:10px;">
+        <td style="border-bottom: #070707 solid 2px; border-left:1px solid #ddd; border-right:1px solid #ddd; padding:10px;">
             <p style="text-align:center; color:#999; font-family:sans-serif; font-size:12px;"><strong>Submitted on:</strong> {datetime}</p>
         </td>
     </tr>
