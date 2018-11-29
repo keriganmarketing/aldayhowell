@@ -69,6 +69,7 @@ class Leads
     {
         $fullName = (isset($dataSubmitted['full_name']) ? $dataSubmitted['full_name'] : null);
         $dataSubmitted['full_name'] = (isset($dataSubmitted['first_name']) && isset($dataSubmitted['last_name']) ? $dataSubmitted['first_name'] . ' ' . $dataSubmitted['last_name'] : $fullName);
+        echo '<pre>',print_r($dataSubmitted),'</pre>';
 
         if(!$this->validateSubmission($dataSubmitted)){ return false; }
         $this->addToDashboard($dataSubmitted);
