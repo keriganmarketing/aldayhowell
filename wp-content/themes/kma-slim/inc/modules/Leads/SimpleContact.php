@@ -13,12 +13,16 @@ class SimpleContact extends Leads
             ]
         );
         parent::set('postType', 'Contact Submission');
-        parent::set('adminEmail', 'info@aldayhowell.com');
+        // parent::set('adminEmail', 'info@aldayhowell.com');
     }
 
     protected function showForm()
     {
         $form = file_get_contents(locate_template('template-parts/forms/contact-form.php'));
+        $form = str_replace('{{user-agent}}', $_SERVER['HTTP_USER_AGENT'], $form);
+		$form = str_replace('{{ip-address}}', parent::getIP(), $form);
+        $form = str_replace('{{referrer}}', $_SERVER['HTTP_REFERER'], $form);
+
         $formSubmitted = (isset($_POST['sec']) ? ($_POST['sec'] == '' ? true : false) : false );
         ob_start();
         if($formSubmitted){
