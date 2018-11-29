@@ -13,6 +13,7 @@ class Leads
     public    $bccEmail;
     public    $additionalFields;
     public    $siteName;
+    public    $errors;
 
     /**
      * Leads constructor.
@@ -46,6 +47,19 @@ class Leads
         return $this->$var;
     }
 
+    protected function showErrors()
+    {
+        $output = '<ul>';
+        if(!empty($this->errors)){
+            foreach($this->errors as $error){
+                $output .= '<li>' . $error . '</li>';
+            }
+        }
+        $output .= '</ul>';
+
+        return $output;
+    }
+
     protected function uglify($var){
         return str_replace(' ', '_', strtolower($var));
     }
@@ -69,7 +83,6 @@ class Leads
     {
         $fullName = (isset($dataSubmitted['full_name']) ? $dataSubmitted['full_name'] : null);
         $dataSubmitted['full_name'] = (isset($dataSubmitted['first_name']) && isset($dataSubmitted['last_name']) ? $dataSubmitted['first_name'] . ' ' . $dataSubmitted['last_name'] : $fullName);
-        echo '<pre>',print_r($dataSubmitted),'</pre>';
 
         if(!$this->validateSubmission($dataSubmitted)){ return false; }
         $this->addToDashboard($dataSubmitted);
@@ -83,24 +96,25 @@ class Leads
      */
     protected function validateSubmission($dataSubmitted)
     {
-
+        $errors = []; 
         $passCheck = true;
         if ($dataSubmitted['email_address'] == '') {
             $passCheck = false;
-            echo $passCheck;
+            $errors[] = 'Email is empty';
         } elseif (!filter_var($dataSubmitted['email_address'], FILTER_VALIDATE_EMAIL) && !preg_match('/@.+\./',
-            $dataSubmitted['email_address'])) {
+                $dataSubmitted['email_address'])) {
             $passCheck = false;
-            echo $passCheck;
+            $errors[] = 'Email is malformed';
         }
         if ($dataSubmitted['full_name'] == '') {
             $passCheck = false;
-            echo $passCheck;
+            $errors[] = 'Full name is required';
         }
 
         if (function_exists('akismet_verify_key') && !empty(akismet_get_key())){
             if ($this->checkSpam($dataSubmitted)){
                 $passCheck = false;
+                $errors[] = 'Spam is not permitted.';
             }
         }
 
@@ -141,7 +155,6 @@ class Leads
         ], $_SERVER);
 
         $spam = $result->isSpam();
-        echo '<pre>',print_r($result),'</pre>';
 
         return $spam; // Boolean 
     }

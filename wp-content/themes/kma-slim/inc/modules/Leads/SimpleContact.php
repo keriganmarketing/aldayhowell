@@ -27,10 +27,12 @@ class SimpleContact extends Leads
         $formSubmitted = (isset($_POST['sec']) && $_POST['sec'] == '' ? true : false );
         ob_start();
         if($formSubmitted){
-            if(parent::handleLead($_POST)){
+            if($this->handleLead($_POST)){
                 return '<message title="Success" class="is-success">Thank you for contacting us. Your message has been received.</message>';
             }else{
-                return '<message title="Error" class="is-danger">There was an error with your submission. Please try again.</message>';
+                return '<message title="Error" class="is-danger">There was an error with your submission. Please try again.'
+                . (!empty(parent::get('errors')) ? parent::showErrors() : '') .
+                '</message>';
                 echo $form;
                 return ob_get_clean();
             }
