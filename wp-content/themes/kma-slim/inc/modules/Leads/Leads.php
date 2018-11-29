@@ -87,19 +87,21 @@ class Leads
         $passCheck = true;
         if ($dataSubmitted['email_address'] == '') {
             $passCheck = false;
+            echo $passCheck;
         } elseif (!filter_var($dataSubmitted['email_address'], FILTER_VALIDATE_EMAIL) && !preg_match('/@.+\./',
             $dataSubmitted['email_address'])) {
             $passCheck = false;
+            echo $passCheck;
         }
         if ($dataSubmitted['full_name'] == '') {
             $passCheck = false;
+            echo $passCheck;
         }
 
         if (function_exists('akismet_verify_key') && !empty(akismet_get_key())){
             if ($this->checkSpam($dataSubmitted)){
                 $passCheck = false;
             }
-            echo 'checked';
         }
 
         return $passCheck;
