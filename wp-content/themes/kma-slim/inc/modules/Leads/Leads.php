@@ -50,7 +50,7 @@ class Leads
     protected function showErrors()
     {
         $output = '<ul>';
-        if(!empty($this->errors)){
+        if($this->errors != ''){
             foreach($this->errors as $error){
                 $output .= '<li>' . $error . '</li>';
             }

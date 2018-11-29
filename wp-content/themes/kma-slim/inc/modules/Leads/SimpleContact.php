@@ -31,7 +31,7 @@ class SimpleContact extends Leads
                 return '<message title="Success" class="is-success">Thank you for contacting us. Your message has been received.</message>';
             }else{
                 return '<message title="Error" class="is-danger">There was an error with your submission. Please try again.'
-                . (!empty(parent::get('errors')) ? parent::showErrors() : '') .
+                . parent::showErrors() .
                 '</message>';
                 echo $form;
                 return ob_get_clean();
