@@ -27,7 +27,7 @@ class SimpleContact extends Leads
         $formSubmitted = (isset($_POST['sec']) ? ($_POST['sec'] == '' ? true : false) : false );
         ob_start();
         if($formSubmitted){
-            if($this->handleLead($_POST)){
+            if(parent::handleLead($_POST)){
                 return '<message title="Success" class="is-success">Thank you for contacting us. Your message has been received.</message>';
             }else{
                 return '<message title="Error" class="is-danger">There was an error with your submission. Please try again.</message>';
