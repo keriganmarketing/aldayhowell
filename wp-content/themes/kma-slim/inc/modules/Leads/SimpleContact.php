@@ -13,7 +13,8 @@ class SimpleContact extends Leads
             ]
         );
         parent::set('postType', 'Contact Submission');
-        // parent::set('adminEmail', 'info@aldayhowell.com');
+        //parent::set('adminEmail', 'info@aldayhowell.com');
+        parent::set('adminEmail', 'web@kerigan.com');
     }
 
     protected function showForm()
