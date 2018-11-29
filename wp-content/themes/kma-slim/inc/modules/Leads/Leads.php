@@ -99,6 +99,7 @@ class Leads
             if ($this->checkSpam($dataSubmitted)){
                 $passCheck = false;
             }
+            echo 'checked';
         }
 
         return $passCheck;
