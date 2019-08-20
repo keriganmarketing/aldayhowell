@@ -23,11 +23,17 @@ include(locate_template('template-parts/sections/top.php'));
                     <?php include(locate_template('template-parts/sections/support-heading.php')); ?>
                     <div class="columns is-multiline">
                         <div class="column is-12 is-4-desktop">
+                            
+                            <h3 class="title is-5 is-bold">Office Locations:</h3>
+                            <p><strong>Marianna</strong><br>
+                            <?= nl2br(PageField::getField('contact_info_office_location', 20)); ?></p>
                             <p><em>phone:</em> <a href="tel:<?= PageField::getField('contact_info_phone_number', 20); ?>" ><?= PageField::getField('contact_info_phone_number', 20); ?></a><br>
                             <em>fax:</em> <?= PageField::getField('contact_info_fax_number', 20); ?></p>
-                            <h4 class="title is-5 is-bold">Office Location:</h3>
-                            <p><?= nl2br(PageField::getField('contact_info_office_location', 20)); ?></p>
-                            <h4 class="title is-5 is-bold">Mailing Address:</h3>
+
+                            <p><strong>Crestview</strong><br><?= nl2br(PageField::getField('contact_info_office_2_location', 20)); ?></p>
+                            <p><em>phone:</em> <a href="tel:<?= PageField::getField('contact_info_office_2_phone', 20); ?>" ><?= PageField::getField('contact_info_office_2_phone', 20); ?></a><br>
+
+                            <h3 class="title is-5 is-bold">Mailing Address:</h3>
                             <p><?= nl2br(PageField::getField('contact_info_mailing_address', 20)); ?></p>
                         </div>
                         <div class="column is-12 is-8-desktop">
