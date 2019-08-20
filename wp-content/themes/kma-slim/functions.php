@@ -52,7 +52,9 @@ PageField::addField('Contact Info',[
 	'Phone number'    => 'text',
 	'Fax number'      => 'text',
 	'Mailing Address' => 'textarea',
-	'Office Location' => 'textarea'
+	'Office Location' => 'textarea',
+	'Office 2 Location' => 'textarea',
+	'Office 2 Phone'  => 'text'
 ], 20);
 
 if ( ! function_exists( 'kmaslim_setup' ) ) :

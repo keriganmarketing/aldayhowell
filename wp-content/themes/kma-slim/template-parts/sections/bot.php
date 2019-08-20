@@ -34,17 +34,21 @@ $socialIcons = $socialLinks->getSocialLinks('svg', 'circle');
             <div class="container">
                 <div class="columns is-multiline is-justified">
                     <div class="column is-narrow p-4">
-                        <h4 class="title is-6 is-white is-caps is-bold">Contact:</h3>
-                        <p><em>phone:</em> <a href="tel:<?= PageField::getField('contact_info_phone_number', 20); ?>" ><?= PageField::getField('contact_info_phone_number', 20); ?></a></p>
+                        <h4 class="title is-6 is-white is-caps is-bold">Marianna Office:</h4>
+                        <p><?= trim(nl2br(PageField::getField('contact_info_office_location', 20))); ?></p>
+                        <p><em>phone:</em> <a href="tel:<?= PageField::getField('contact_info_phone_number', 20); ?>" >
+                        <?= PageField::getField('contact_info_phone_number', 20); ?></a></p>
                         <p><em>fax:</em> <?= PageField::getField('contact_info_fax_number', 20); ?></p>
                     </div>
                     <div class="column is-narrow p-4">
-                        <h4 class="title is-6 is-white is-caps is-bold">Office Location:</h3>
-                        <p><?= nl2br(PageField::getField('contact_info_office_location', 20)); ?></p>
+                        <h4 class="title is-6 is-white is-caps is-bold">Crestview Office:</h4>
+                        <p><?= trim(nl2br(PageField::getField('contact_info_office_2_location', 20))); ?></p>
+                        <p><em>phone:</em> <a href="tel:<?= PageField::getField('contact_info_office_2_phone', 20); ?>" >
+                        <?= PageField::getField('contact_info_office_2_phone', 20); ?></a></p>
                     </div>
                     <div class="column is-narrow p-4">
-                        <h4 class="title is-6 is-white is-caps is-bold">Mailing Address:</h3>
-                        <p><?= nl2br(PageField::getField('contact_info_mailing_address', 20)); ?></p>
+                        <h4 class="title is-6 is-white is-caps is-bold">Mailing Address:</h4>
+                        <p><?= trim(nl2br(PageField::getField('contact_info_mailing_address', 20))); ?></p>
                     </div>
                     <div class="column is-narrow p-4">
                         <?php if (is_array($socialIcons)) { ?>
