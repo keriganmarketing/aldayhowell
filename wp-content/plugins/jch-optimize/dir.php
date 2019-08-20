@@ -1,4 +1,4 @@
 <?php
            
-$DIR = '/home/forge/demo.aldayhowell.com/';
+$DIR = '/home/forge/aldayhowell.com/';
            
